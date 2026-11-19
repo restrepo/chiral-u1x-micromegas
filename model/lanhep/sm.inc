@@ -44,7 +44,9 @@ parameter Q=100: 'Scale of effective running masses',
 %  mass MX follow from the exact diagonalization of the (Zt,Ztp) mass matrix
 %    {{MZ0**2, bZZ}, {bZZ, MZ0**2*SW**2*teps**2 + MX**2/ceps**2}},
 %  with bZZ = MZ0**2*SW*teps and (Zt,Ztp) = {{cchi,-schi},{schi,cchi}}*(Z,Zp).
-%  Requires MZp < MZ0.
+%  Valid for MZp below or above MZ0 = MW/CW, except in a narrow window just
+%  above MZ0 where MX**2 < 0 (no solution); the window grows with epsX, e.g.
+%  91.2921-91.2932 GeV for epsX = 1E-2. main.c stops there.
 
 parameter  gX   = 0.01 : 'U(1)_X gauge coupling',
            epsX = 1E-6 : 'kinetic mixing, sin of eps prime',

@@ -1,18 +1,18 @@
-# Chiral $U(1)_X$ dark sector for micrOMEGAs
+# Chiral $U(1)_{X}$ dark sector for micrOMEGAs
 
 This repository implements the model of [arXiv:2506.04718](https://arxiv.org/abs/2506.04718)
 (X. He, T. Nomura and N. Yokozaki, *Dark matter and dark radiation from chiral U(1) gauge symmetry*)
 in [LanHEP](https://theory.sinp.msu.ru/~semenov/lanhep.html), producing CalcHEP model files for
 [micrOMEGAs](https://lapth.cnrs.fr/micromegas/).
 
-The dark sector has five left-handed Weyl fermions with $U(1)_X$ charges $(-9, -5, -1, 7, 8)$. These cancel the $U(1)_X^3$ and gravitational anomalies, which are the only anomalies, since SM fields carry no $U(1)_X$ charge.
+The dark sector has five left-handed Weyl fermions with $U(1)_{X}$ charges $(-9, -5, -1, 7, 8)$. These cancel the $U(1)_{X}^3$ and gravitational anomalies, which are the only anomalies, since SM fields carry no $U(1)_{X}$ charge.
 
-The repository uses the paper's benchmark charges, $(Q_1, Q_2, Q_M) = (-9, -1, -5)$, with a dark Higgs $\phi_q$ of charge $q = 10$:
+The repository uses the paper's benchmark charges, $\left(Q_{1}, Q_{2}, Q_{M}\right) = (-9, -1, -5)$, with a dark Higgs $\phi_{q}$ of charge $q = 10$:
 
 - **Dirac dark matter:** $\psi_{-9}$ and $\psi_{-1}$ form a Dirac fermion, odd under $Z_2$.
 - **Majorana dark matter:** $\psi_{-5}$ gets a Majorana mass and is odd under $Z_2'$, so micrOMEGAs treats the model as two-component dark matter.
 - **Dark radiation:** $\psi_{7}$ and $\psi_{8}$ stay massless.
-- **Portal to the SM:** the $U(1)_X$ gauge boson, a dark photon $Z'$, couples to the SM through kinetic mixing with hypercharge, $-\tfrac{\sin\epsilon'}{2}\tilde B_{\mu\nu}X^{\mu\nu}$.
+- **Portal to the SM:** the $U(1)_{X}$ gauge boson, a dark photon $Z'$, couples to the SM through kinetic mixing with hypercharge, $-\tfrac{\sin\epsilon'}{2}\tilde B_{\mu\nu}X^{\mu\nu}$.
 
 ## Quick start
 
@@ -38,42 +38,42 @@ Run `./setup.sh --no-lanhep` to skip LanHEP and use the pre-generated CalcHEP fi
 
 | CalcHEP name | field | $Z_2\times Z_2'$ |
 |---|---|---|
-| `~X`, `~x` | Dirac DM: $P_L\psi_D = \psi_{-1}$, $P_R\psi_D = (\psi_{-9})^c$ | $(-, +)$ |
-| `~~M` | Majorana DM: $P_L\psi_M = \psi_{-5}$ | $(+, -)$ |
+| `~X`, `~x` | Dirac DM: $P_{L}\psi_{D} = \psi_{-1}$, $P_{R}\psi_{D} = (\psi_{-9})^c$ | $\left(-,\,+\right)$ |
+| `~~M` | Majorana DM: $P_{L}\psi_{M} = \psi_{-5}$ | $\left(+,\,-\right)$ |
 | `nX`, `NX` | massless Dirac field built from $\psi_{7}$ and $(\psi_{8})^c$ (dark radiation) | even |
 | `hX` | dark Higgs | even |
 | `Zp` | dark photon $Z'$ | even |
 
 | parameter | meaning |
 |---|---|
-| `gX` | $U(1)_X$ gauge coupling $g_X$ |
+| `gX` | $U(1)_{X}$ gauge coupling $g_{X}$ |
 | `epsX` | kinetic mixing $\sin\epsilon'$ (the paper's $\epsilon$) |
-| `MZp` | physical $Z'$ mass, which must be below $M_{Z}$ |
+| `MZp` | physical $Z'$ mass, below or above $M_{Z}$ (see the note on the forbidden window) |
 | `MhX` | dark Higgs mass |
-| `sa` | $\sin\alpha$, the $h$–$h_X$ mixing from the Higgs portal; `sa = 0` is the paper's model |
-| `MDm` | Dirac mass $M_D = y_D v_q$ |
-| `MMj` | Majorana mass $M_M = y_M v_q$ |
+| `sa` | $\sin\alpha$, the $h$–$h_{X}$ mixing from the Higgs portal; `sa = 0` is the paper's model |
+| `MDm` | Dirac mass $M_{D} = y_{D} v_{q}$ |
+| `MMj` | Majorana mass $M_{M} = y_{M} v_{q}$ |
 
 The model computes these as derived, public parameters:
 
-- $M_{Z}$ and $M_X$, from the exact diagonalization of the $Z$–$Z'$ mass matrix;
-- $v_q$, from $M_X^2 = 2 g_X^2 q^2 v_q^2$;
+- $M_{Z}$ and $M_{X}$, from the exact diagonalization of the $Z$–$Z'$ mass matrix;
+- $v_{q}$, from $M_{X}^2 = 2 g_{X}^2 q^2 v_{q}^2$;
 - $\sin\chi$, the $Z$–$Z'$ mixing angle;
-- $\epsilon_{\mathrm{DP}} = \sin\epsilon'\cos\theta_W$;
+- $\epsilon_{\mathrm{DP}} = \sin\epsilon'\cos\theta_{W}$;
 - the portal coupling $\lambda_{HX}$.
 
 ## Benchmark points
 
-All three points have $\epsilon = 10^{-6}$, $M_{Z'} = 30\,\mathrm{GeV}$ and $M_{h_X} = 70\,\mathrm{GeV}$.
+All three points have $\epsilon = 10^{-6}$, $M_{Z'} = 30\,\mathrm{GeV}$ and $M_{h_{X}} = 70\,\mathrm{GeV}$.
 
-| point | $g_X$ | $M_D$ [GeV] | $M_M$ [GeV] | $\sin\alpha$ |
+| point | $g_{X}$ | $M_{D}$ [GeV] | $M_{M}$ [GeV] | $\sin\alpha$ |
 |---|---|---|---|---|
 | BP1 | 0.013 | 14.9 | 40 | 0 |
 | BP2 | 0.0142 | 40 | 14.9 | 0 |
 | BP3 | 0.013 | 14.9 | 40 | 0.003 |
 
-- **BP1** is Majorana-dominated, as in Fig. 4 of the paper, with $M_D = M_{Z'}/2 - 0.1\,\mathrm{GeV}$.
-- **BP2** is Dirac-dominated, as in Fig. 2, with $M_M = M_{Z'}/2 - 0.1\,\mathrm{GeV}$.
+- **BP1** is Majorana-dominated, as in Fig. 4 of the paper, with $M_{D} = M_{Z'}/2 - 0.1\,\mathrm{GeV}$.
+- **BP2** is Dirac-dominated, as in Fig. 2, with $M_{M} = M_{Z'}/2 - 0.1\,\mathrm{GeV}$.
 - **BP3** is BP1 with the Higgs portal switched on.
 
 The expected results, from micrOMEGAs 7.1.1, are below. The full outputs are in `benchmarks/expected/`.
@@ -86,8 +86,8 @@ The expected results, from micrOMEGAs 7.1.1, are below. The full outputs are in 
 
 The $Z'$ decays mostly to dark radiation:
 
-- at BP1 and BP3, $\mathrm{BR}(Z'\to n_X\bar n_X) = 95\%$ and $\mathrm{BR}(Z'\to \psi_D\bar\psi_D) = 5\%$;
-- at BP2, where the Dirac channel is closed, $\mathrm{BR}(Z'\to n_X\bar n_X) = 99.97\%$.
+- at BP1 and BP3, $\mathrm{BR}(Z'\to n_{X}\bar n_{X}) = 95\%$ and $\mathrm{BR}(Z'\to \psi_{D}\bar\psi_{D}) = 5\%$;
+- at BP2, where the Dirac channel is closed, $\mathrm{BR}(Z'\to n_{X}\bar n_{X}) = 99.97\%$.
 
 To check a build, compare your output with the stored one:
 
@@ -98,8 +98,9 @@ To check a build, compare your output with the stored one:
 ## Implementation notes
 
 - **Exact neutral gauge sector.** The kinetic mixing is removed with $X = \tilde Z'/\cos\epsilon'$ and $\tilde B = B - \tan\epsilon'\,\tilde Z'$. The $(\tilde Z, \tilde Z')$ mass matrix is then diagonalized exactly, taking the physical $M_{Z'}$ as input. LanHEP's `CheckMasses` confirms that the masses are diagonal. Eq. (17) of the paper for $\sin 2\chi$ is exact, because its denominator uses the physical masses.
+- **Heavy $Z'$.** The diagonalization holds for $M_{Z'}$ on either side of $M_{Z0} = M_{W}/c_{W} = 91.292\,\mathrm{GeV}$, the $Z$ mass before mixing; above it, the mixing angle $\chi$ changes sign. Points with $M_{Z'}$ from 200 to 1000 GeV run normally, and channels such as $Z'\to W^+W^-$ and $Z'\to Z\,h$ open automatically. The two eigenvalues repel, so there is no solution ($M_{X}^2 < 0$) in a narrow window just above $M_{Z0}$: 91.2921 to 91.2922 GeV for $\epsilon = 10^{-3}$, to 91.2932 GeV for $\epsilon = 10^{-2}$, and to 91.3178 GeV for $\epsilon = 0.05$. `main.c` stops with a message there. Below $M_{Z0}$ there is always a solution. Since $M_{W}$ and $s_{W}$ are the inputs, the physical $M_{Z}$ is shifted by $\Delta M_{Z} \simeq -b^2/[2M_{Z}(M_{Z'}^2 - M_{Z}^2)]$, with $b = M_{Z0}^2 s_{W}\tan\epsilon'$. This is negligible far from the resonance, but near it the shift exceeds the 2.1 MeV error on $M_{Z}$: at $\epsilon = 10^{-2}$ it is $-12\,\mathrm{MeV}$ for $M_{Z'} = 95\,\mathrm{GeV}$, and for $M_{Z'}$ just below $M_{Z0}$ the two states swap character and $M_{Z}$ comes out near 111 GeV. `main.c` prints a warning whenever $|\Delta M_{Z}| > 2.1\,\mathrm{MeV}$; such points need electroweak precision constraints or an input scheme that fixes the physical $M_{Z}$.
 - **Unitary gauge.** The model is written in unitary gauge, and `main.c` sets `ForceUG=1`.
-- **Higgs portal (an extension).** The paper's potential is $\lambda(|\phi_q|^2 - v_q^2)^2$. This implementation adds $\lambda_{HX}(|H|^2 - v^2/2)(|\phi_q|^2 - v_q^2)$ and uses $(M_h, M_{h_X}, \sin\alpha)$ as inputs. With `sa = 0` it reduces to the paper's model.
+- **Higgs portal (an extension).** The paper's potential is $\lambda(|\phi_{q}|^2 - v_{q}^2)^2$. This implementation adds $\lambda_{HX}(|H|^2 - v^2/2)(|\phi_{q}|^2 - v_{q}^2)$ and uses $(M_{h}, M_{h_{X}}, \sin\alpha)$ as inputs. With `sa = 0` it reduces to the paper's model.
 - **Light quarks.** The $u$ and $d$ quarks have mass `Mq = 0.05` GeV, with matching Yukawa couplings, because micrOMEGAs' direct-detection module needs nonzero light-quark masses.
 - **No spin-dependent signal.** The Majorana spin-dependent cross section is exactly zero. With pure kinetic mixing, the axial couplings to quarks from $Z$ and $Z'$ exchange cancel at zero momentum transfer, so at low energy the $Z'$ couples only to the electromagnetic current. This differs from the nonzero $\sigma_{\mathrm{SD}}$ shown in Fig. 3 of the paper. With a nonzero portal, the Majorana state gets a spin-independent cross section from Higgs exchange instead (BP3).
 - **Source of the SM part.** `model/lanhep/sm.inc` is micrOMEGAs' own LanHEP Standard Model (`STFM/work/lanhep/sm.inc`), with the $Z'$, the mixing and the light-quark masses added.

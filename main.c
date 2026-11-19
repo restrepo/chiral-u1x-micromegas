@@ -50,6 +50,22 @@ int main(int argc,char** argv)
   if(err==-1)     {printf("Can not open the file\n"); exit(1);}
   else if(err>0)  { printf("Wrong file contents at line %d\n",err);exit(1);}
 
+  /* The Z-Zp mass matrix has no solution (MX^2 <= 0) for MZp in a narrow
+     window just above MZ0 = MW/CW, whose width grows with epsX. */
+  { double MW=findValW("MW"), SW=findValW("SW"), eps=findValW("epsX"), MZp=findValW("MZp");
+    double MZ02=MW*MW/(1-SW*SW), t=eps/sqrt(1-eps*eps), b=MZ02*SW*t;
+    double MX2=MZp*MZp+b*b/(MZ02-MZp*MZp)-MZ02*SW*SW*t*t;
+    if(MZp*MZp==MZ02 || !(MX2>0))
+    { printf("No Z-Zp mixing solution for MZp=%.6E GeV and epsX=%.3E (MZ0=%.6E GeV):\n"
+             "MX^2 <= 0. Move MZp away from MZ0 or lower epsX.\n",MZp,eps,sqrt(MZ02));
+      exit(1);
+    }
+    /* MW and SW are inputs, so mixing shifts the Z mass away from MZ0 */
+    double dMZ=sqrt(MZ02+b*b/(MZ02-MZp*MZp))-sqrt(MZ02);
+    if(fabs(dMZ)>2.1E-3)
+      printf("WARNING: Z-Zp mixing shifts MZ by %.3E GeV, more than the 2.1 MeV error on MZ\n",dMZ);
+  }
+
   err=sortOddParticles(cdmName);
   if(err) { printf("Can't calculate %s\n",cdmName); return 1;}
 
