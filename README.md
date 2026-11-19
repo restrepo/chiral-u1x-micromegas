@@ -120,3 +120,8 @@ benchmarks/                 BP1-BP3 parameter files and expected outputs
 - X. He, T. Nomura, N. Yokozaki, [arXiv:2506.04718](https://arxiv.org/abs/2506.04718).
 - G. Alguero et al., micrOMEGAs 6.0, [Comput. Phys. Commun. 299 (2024) 109133](https://doi.org/10.1016/j.cpc.2024.109133), [arXiv:2312.14894](https://arxiv.org/abs/2312.14894).
 - A. Semenov, LanHEP 4.0, [Comput. Phys. Commun. 201 (2016) 167](https://doi.org/10.1016/j.cpc.2016.01.003), [arXiv:1412.5016](https://arxiv.org/abs/1412.5016).
+
+## License
+
+This repository is distributed under the GNU General Public License v3.0; see `LICENSE`.
+micrOMEGAs and LanHEP are downloaded from their authors and keep their own licenses.
