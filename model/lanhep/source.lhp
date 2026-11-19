@@ -1,0 +1,17 @@
+
+% SM + chiral U(1)_X dark sector of arXiv:2506.04718, for CalcHEP/micrOMEGAs.
+% Run from this directory:  lhep -ca source.lhp   (writes the CalcHEP *1.mdl files)
+
+keys gauge_fixing=unitary, CKMdim=1.
+
+option chepPDWidth=165.
+
+model 'SM+chiral U1X'/1.
+
+read 'sm.inc'.
+
+read 'u1x.inc'.
+
+CheckHerm.
+
+CheckMasses.

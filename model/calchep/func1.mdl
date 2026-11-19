@@ -1,0 +1,59 @@
+SM+chiral U1X
+ Constraints 
+ Name  |> Expression                                                                                                                                                        <|
+CW     |sqrt(1-SW^2) % cos of the Weinberg angle
+GF     |EE^2/(2*SW*MW)^2/Sqrt2 %  experimental value 1.166E-5 [1/GeV^2]
+MZ0    |MW/CW % Z mass without Z-Zp mixing
+LamQCD |initQCD5(alphaSMZ, McMc, MbMb, Mtp)
+Mb     |MbEff(Q)
+Mc     |McEff(Q)
+Ms     |MqEff(0.096, Q) % s-quark effective mass  via 2MeV running one
+ceps   |sqrt(1-epsX^2) % cos of eps prime
+teps   |epsX/ceps % tan of eps prime
+bZZ    |MZ0^2*SW*teps % Z-Zp off-diagonal mass squared
+dZZ    |MZp^2+bZZ^2/(MZ0^2-MZp^2) % Zp-Zp entry of mass squared matrix
+MZ     |sqrt(MZ0^2+dZZ-MZp^2) % Z boson mass
+*MX    |ceps*sqrt(dZZ-MZ0^2*SW^2*teps^2) % * U(1)_X mass before mixing
+tchi   |bZZ/(MZ0^2-MZp^2) % tan of Z-Zp mixing angle chi
+cchi   |1/sqrt(1+tchi^2) % cos of chi
+*schi  |tchi*cchi % * sin of chi
+*epsDP |epsX*CW % * dark photon coupling eps_DP = sin(eps prime)*CW
+ca     |sqrt(1-sa^2) % cos of h-hX mixing angle
+*vq    |MX/(Sqrt2*gX*10) % * dark Higgs VEV, MX**2 = 2*gX**2*q**2*vq**2
+lamH   |(ca^2*Mh^2+sa^2*MhX^2)/(2*(2*MW*SW/EE)^2) % Higgs quartic coupling
+lamX   |(sa^2*Mh^2+ca^2*MhX^2)/(4*vq^2) % dark Higgs quartic coupling
+*lamHX |ca*sa*(Mh^2-MhX^2)/(Sqrt2*(2*MW*SW/EE)*vq) % * Higgs portal coupling
+B00000 |3*cchi+SW*schi*teps
+B00001 |3*schi-SW*cchi*teps
+B00002 |3*cchi-SW*schi*teps
+B00003 |3*schi+SW*cchi*teps
+B00004 |cchi-SW*schi*teps
+B00005 |schi+SW*cchi*teps
+B00006 |cchi+SW*schi*teps
+B00007 |schi-SW*cchi*teps
+B00008 |EE*MW*ca*cchi^2*ceps^2+200*CW^2*SW*Sqrt2*gX^2*sa*schi^2*vq+EE*MW*SW^2*ca*ceps^2*schi^2*teps^2+2*EE*MW*SW*ca*cchi*ceps^2*schi*teps
+B00009 |EE*MW*cchi^2*ceps^2*sa-200*CW^2*SW*Sqrt2*ca*gX^2*schi^2*vq+EE*MW*SW^2*ceps^2*sa*schi^2*teps^2+2*EE*MW*SW*cchi*ceps^2*sa*schi*teps
+B00010 |EE*MW*ca*cchi*ceps^2*schi-EE*MW*SW*ca*cchi^2*ceps^2*teps+EE*MW*SW*ca*ceps^2*schi^2*teps-200*CW^2*SW*Sqrt2*cchi*gX^2*sa*schi*vq-EE*MW*SW^2*ca*cchi*ceps^2*schi*teps^2
+B00011 |EE*MW*cchi*ceps^2*sa*schi-EE*MW*SW*cchi^2*ceps^2*sa*teps+EE*MW*SW*ceps^2*sa*schi^2*teps+200*CW^2*SW*Sqrt2*ca*cchi*gX^2*schi*vq-EE*MW*SW^2*cchi*ceps^2*sa*schi*teps^2
+B00012 |EE*MW*ca*ceps^2*schi^2+200*CW^2*SW*Sqrt2*cchi^2*gX^2*sa*vq+EE*MW*SW^2*ca*cchi^2*ceps^2*teps^2-2*EE*MW*SW*ca*cchi*ceps^2*schi*teps
+B00013 |EE*MW*ceps^2*sa*schi^2-200*CW^2*SW*Sqrt2*ca*cchi^2*gX^2*vq+EE*MW*SW^2*cchi^2*ceps^2*sa*teps^2-2*EE*MW*SW*cchi*ceps^2*sa*schi*teps
+B00014 |2*EE*Sqrt2*lamX*sa^3*vq+4*MW*SW*ca*ca^2*lamH+2*MW*SW*ca*lamHX*sa^2+EE*Sqrt2*ca^2*lamHX*sa*vq
+B00015 |4*MW*SW*lamHX*sa-6*MW*SW*lamHX*sa^3+EE*Sqrt2*ca*lamHX*vq-12*MW*SW*ca^2*lamH*sa-3*EE*Sqrt2*ca*lamHX*sa^2*vq
+B00016 |B00015+6*EE*Sqrt2*ca*lamX*sa^2*vq
+B00017 |2*MW*SW*ca*lamHX-2*EE*Sqrt2*lamHX*sa*vq+3*EE*Sqrt2*lamHX*sa^3*vq+12*MW*SW*ca*lamH*sa^2-6*MW*SW*ca*lamHX*sa^2
+B00018 |B00017+6*EE*Sqrt2*ca^2*lamX*sa*vq
+B00019 |4*MW*SW*lamH*sa^3+2*MW*SW*ca^2*lamHX*sa-2*EE*Sqrt2*ca*ca^2*lamX*vq-EE*Sqrt2*ca*lamHX*sa^2*vq
+B00020 |EE^2*ca^2*cchi^2*ceps^2+400*CW^2*SW^2*gX^2*sa^2*schi^2+EE^2*SW^2*ca^2*ceps^2*schi^2*teps^2+2*EE^2*SW*ca^2*cchi*ceps^2*schi*teps
+B00021 |EE^2*cchi^2*ceps^2-400*CW^2*SW^2*gX^2*schi^2+EE^2*SW^2*ceps^2*schi^2*teps^2+2*EE^2*SW*cchi*ceps^2*schi*teps
+B00022 |EE^2*cchi^2*ceps^2*sa^2+400*CW^2*SW^2*ca^2*gX^2*schi^2+EE^2*SW^2*ceps^2*sa^2*schi^2*teps^2+2*EE^2*SW*cchi*ceps^2*sa^2*schi*teps
+B00023 |EE^2*ca^2*cchi*ceps^2*schi-400*CW^2*SW^2*cchi*gX^2*sa^2*schi-EE^2*SW*ca^2*cchi^2*ceps^2*teps+EE^2*SW*ca^2*ceps^2*schi^2*teps-EE^2*SW^2*ca^2*cchi*ceps^2*schi*teps^2
+B00024 |EE^2*cchi*ceps^2*schi+400*CW^2*SW^2*cchi*gX^2*schi-EE^2*SW*cchi^2*ceps^2*teps+EE^2*SW*ceps^2*schi^2*teps-EE^2*SW^2*cchi*ceps^2*schi*teps^2
+B00025 |EE^2*cchi*ceps^2*sa^2*schi-400*CW^2*SW^2*ca^2*cchi*gX^2*schi-EE^2*SW*cchi^2*ceps^2*sa^2*teps+EE^2*SW*ceps^2*sa^2*schi^2*teps-EE^2*SW^2*cchi*ceps^2*sa^2*schi*teps^2
+B00026 |EE^2*ca^2*ceps^2*schi^2+400*CW^2*SW^2*cchi^2*gX^2*sa^2+EE^2*SW^2*ca^2*cchi^2*ceps^2*teps^2-2*EE^2*SW*ca^2*cchi*ceps^2*schi*teps
+B00027 |EE^2*ceps^2*schi^2-400*CW^2*SW^2*cchi^2*gX^2+EE^2*SW^2*cchi^2*ceps^2*teps^2-2*EE^2*SW*cchi*ceps^2*schi*teps
+B00028 |EE^2*ceps^2*sa^2*schi^2+400*CW^2*SW^2*ca^2*cchi^2*gX^2+EE^2*SW^2*cchi^2*ceps^2*sa^2*teps^2-2*EE^2*SW*cchi*ceps^2*sa^2*schi*teps
+B00029 |ca^4*lamH+lamX*sa^4+ca^2*lamHX*sa^2
+B00030 |lamHX-2*ca^2*lamH-2*lamHX*sa^2+2*lamX*sa^2
+B00031 |lamHX+6*ca^2*lamH*sa^2-6*ca^2*lamHX*sa^2+6*ca^2*lamX*sa^2
+B00032 |lamHX-2*ca^2*lamX+2*lamH*sa^2-2*lamHX*sa^2
+B00033 |ca^4*lamX+lamH*sa^4+ca^2*lamHX*sa^2

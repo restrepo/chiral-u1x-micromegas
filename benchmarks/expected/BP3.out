@@ -1,0 +1,62 @@
+
+DM candidates: ~X (M=1.490E+01 GeV), ~~M (M=4.000E+01 GeV)
+MZ=9.129214E+01 MZp=3.0000E+01 MX=3.0000E+01 vq=1.6318E+02 sin(chi)=5.314E-07 epsDP=8.805E-07
+sin(alpha)=3.000E-03 lamHX=5.733E-04
+
+=== MASSES OF HIGGS AND ODD PARTICLES: ===
+Higgs masses and widths
+      h   125.00 2.91E-03
+     hX    70.00 3.07E-02
+
+Masses of odd sector Particles:
+~X       : MDm     =  14.900 || ~~M      : MMj     =  40.000 || 
+
+==== Calculation of relic density =====
+Omega h^2 total=1.203E-01  ~X: 2.096E-04  ~~M: 1.201E-01
+
+==== CDM-nucleon cross sections =====
+~X[~x]-nucleon cross sections[pb]: proton SI 1.194E-13 SD 0.000E+00, neutron SD 0.000E+00
+~~M[~~M]-nucleon cross sections[pb]: proton SI 7.372E-13 SD 0.000E+00, neutron SD 0.000E+00
+sigma_SI,eff(~X) = 2.086E-16 pb
+
+===== Direct detection exclusion:======
+Not excluded by DD experiments  at 90% level 
+
+================= Decays ==============
+
+Zp :   total width=7.974E-03 
+2.315010E-14 Zp -> ne,Ne
+7.668017E-12 Zp -> e,E
+2.315010E-14 Zp -> nm,Nm
+7.668017E-12 Zp -> m,M
+2.315010E-14 Zp -> nl,Nl
+7.667206E-12 Zp -> l,L
+1.064370E-11 Zp -> u,U
+2.999121E-12 Zp -> d,D
+1.064394E-11 Zp -> c,C
+2.997601E-12 Zp -> s,S
+2.990815E-12 Zp -> b,B
+4.710025E-02 Zp -> ~X,~x
+9.528998E-01 Zp -> nX,NX
+
+hX :   total width=3.072E-02 
+7.199465E-01 hX -> Zp,Zp
+4.339700E-08 hX -> l,L
+1.034721E-10 hX -> u,U
+1.034721E-10 hX -> d,D
+1.979420E-08 hX -> c,C
+1.678575E-10 hX -> s,S
+4.699562E-07 hX -> b,B
+2.800528E-01 hX -> ~X,~x
+
+h :   total width=2.910E-03 
+5.951986E-13 h -> Z,Zp
+8.010482E-04 h -> Zp,Zp
+9.111516E-02 h -> l,L
+2.166718E-04 h -> u,U
+2.166718E-04 h -> d,D
+3.662303E-02 h -> c,C
+3.116944E-04 h -> s,S
+8.705521E-01 h -> b,B
+5.872868E-05 h -> ~X,~x
+1.048106E-04 h -> ~~M,~~M
